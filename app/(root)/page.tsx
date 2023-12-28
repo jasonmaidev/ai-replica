@@ -4,7 +4,6 @@ const RootPage = () => {
   return (
     <div>
       <UserButton afterSignOutUrl="/" />
-      Home Page
     </div>
   );
 }
