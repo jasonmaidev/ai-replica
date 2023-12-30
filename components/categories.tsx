@@ -23,7 +23,7 @@ export const Categories = ({
 
     const url = qs.stringifyUrl({
       url: window.location.href,
-      query
+      query,
     }, { skipNull: true });
 
     router.push(url);
