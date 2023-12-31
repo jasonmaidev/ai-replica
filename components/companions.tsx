@@ -1,18 +1,19 @@
-import { Companion } from "@prisma/client"
 import Image from "next/image"
-import { Card, CardFooter, CardHeader } from "@/components/ui/card"
 import Link from "next/link"
+import { Companion } from "@prisma/client"
 import { MessagesSquare } from "lucide-react"
 
-interface CompanionProps {
+import { Card, CardFooter, CardHeader } from "@/components/ui/card"
+
+interface CompanionsProps {
   data: (Companion & {
     _count: {
       messages: number
-    }
-  })[]
+    },
+  })[];
 }
 
-export const Companions = ({ data }: CompanionProps) => {
+export const Companions = ({ data }: CompanionsProps) => {
   if (data.length === 0) {
     return (
       <div className="pt-10 flex flex-col items-center justify-center space-y-3">
@@ -34,9 +35,7 @@ export const Companions = ({ data }: CompanionProps) => {
   return (
     <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-2 pb-10">
       {data.map((item) => (
-        <Card
-          key={item.id}
-          className="bg-primary/10 rounded-xl cursor-pointer hover:opacity-75 transition border-0">
+        <Card key={item.name} className="bg-primary/10 rounded-xl cursor-pointer hover:opacity-75 transition border-0">
           <Link href={`/chat/${item.id}`}>
             <CardHeader className="flex items-center justify-center text-center text-muted-foreground">
               <div className="relative w-32 h-32">

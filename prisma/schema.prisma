@@ -43,7 +43,7 @@ enum Role {
 }
 
 model Message {
-    id          String   @id @default(uuid())
+  id          String   @id @default(uuid())
   role        Role   
   content     String   @db.Text
   createdAt   DateTime @default(now())
