@@ -9,6 +9,8 @@ import { MemoryManager } from "@/lib/memory";
 import { rateLimit } from "@/lib/rate-limit";
 import prismadb from "@/lib/prismadb";
 
+dotenv.config({ path: `.env` });
+
 export async function POST(
   request: Request,
   { params }: { params: { chatId: string } }
@@ -43,32 +45,34 @@ export async function POST(
       },
     });
 
-    const name = companion.id;
-    const companion_file_name = name + ".txt";
-
     if (!companion) {
       return new NextResponse("Companion not found", { status: 404 });
     }
+
+    const name = companion.id;
+    const companion_file_name = name + ".txt";
 
     const companionKey = {
       companionName: name!,
       userId: user.id,
       modelName: "llama2-13b",
     };
-
     const memoryManager = await MemoryManager.getInstance();
 
     const records = await memoryManager.readLatestHistory(companionKey);
-
     if (records.length === 0) {
       await memoryManager.seedChatHistory(companion.seed, "\n\n", companionKey);
     }
-
     await memoryManager.writeToHistory("User: " + prompt + "\n", companionKey);
+
+    // Query Pinecone
 
     const recentChatHistory = await memoryManager.readLatestHistory(
       companionKey
     );
+
+    // Right now the preamble is included in the similarity search, but that
+    // shouldn't be an issue
 
     const similarDocs = await memoryManager.vectorSearch(
       recentChatHistory,
@@ -79,10 +83,8 @@ export async function POST(
     if (!!similarDocs && similarDocs.length !== 0) {
       relevantHistory = similarDocs.map((doc) => doc.pageContent).join("\n");
     }
-
     const { handlers } = LangChainStream();
-
-    // Call Replicate Model for Inference
+    // Call Replicate for inference
     const model = new Replicate({
       model:
         "a16z-infra/llama-2-13b-chat:df7690f1994d94e96ad9d568eac121aecf50684a0b0963b25a41cc40061269e5",
@@ -144,7 +146,6 @@ export async function POST(
 
     return new StreamingTextResponse(s);
   } catch (error) {
-    console.log("[CHAT_POST", error);
     return new NextResponse("Internal Error", { status: 500 });
   }
 }

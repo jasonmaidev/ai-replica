@@ -40,11 +40,11 @@ const formSchema = z.object({
   description: z.string().min(1, {
     message: "Description is required.",
   }),
-  instructions: z.string().min(200, {
-    message: "Instructions require at least 200 characters."
+  instructions: z.string().min(100, {
+    message: "Instructions require at least 100 characters."
   }),
-  seed: z.string().min(200, {
-    message: "Seed requires at least 200 characters."
+  seed: z.string().min(50, {
+    message: "Seed requires at least 50 characters."
   }),
   src: z.string().min(1, {
     message: "Image is required."

@@ -5,6 +5,7 @@ import { ClerkProvider } from '@clerk/nextjs'
 import { ThemeProvider } from "@/components/theme-provider"
 import { cn } from '@/lib/utils'
 import { Toaster } from "@/components/ui/toaster"
+import { ProModal } from '@/components/pro-modal'
 
 const montserrat = Montserrat({ subsets: ['latin'] })
 
@@ -24,6 +25,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             enableSystem
             disableTransitionOnChange
           >
+            <ProModal />
             {children}
             <Toaster />
           </ThemeProvider>
