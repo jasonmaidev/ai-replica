@@ -1,74 +1,76 @@
-"use client"
+"use client";
 
-import { useCompletion } from "ai/react"
-import { Companion, Message } from "@prisma/client"
-import { useRouter } from "next/navigation"
-import { FormEvent, useState } from "react"
+import { useCompletion } from "ai/react";
+import { FormEvent, useState } from "react";
+import { Companion, Message } from "@prisma/client";
+import { useRouter } from "next/navigation";
 
+import { ChatForm } from "@/components/chat-form";
+import { ChatHeader } from "@/components/chat-header";
 import { ChatMessages } from "@/components/chat-messages";
-import { ChatHeader } from "@/components/chat-header"
-import { ChatForm } from "@/components/chat-form"
-import { ChatMessageProps } from "@/components/chat-message"
+import { ChatMessageProps } from "@/components/chat-message";
 
 interface ChatClientProps {
   companion: Companion & {
-    messages: Message[]
+    messages: Message[];
     _count: {
-      messages: number
+      messages: number;
     }
-  }
-}
+  };
+};
 
-export const ChatClient = ({ companion }: ChatClientProps) => {
-  const router = useRouter()
-  const [messages, setMessages] = useState<ChatMessageProps[]>(companion.messages)
-
+export const ChatClient = ({
+  companion,
+}: ChatClientProps) => {
+  const router = useRouter();
+  const [messages, setMessages] = useState<ChatMessageProps[]>(companion.messages);
+  
   const {
     input,
     isLoading,
     handleInputChange,
     handleSubmit,
-    setInput
+    setInput,
   } = useCompletion({
     api: `/api/chat/${companion.id}`,
-    onFinish(prompt, completion) {
+    onFinish(_prompt, completion) {
       const systemMessage: ChatMessageProps = {
         role: "system",
         content: completion
-      }
+      };
 
-      setMessages((current) => [...current, systemMessage])
-      setInput("")
+      setMessages((current) => [...current, systemMessage]);
+      setInput("");
 
-      router.refresh()
-    }
-  })
+      router.refresh();
+    },
+  });
 
   const onSubmit = (e: FormEvent<HTMLFormElement>) => {
     const userMessage: ChatMessageProps = {
       role: "user",
       content: input
-    }
+    };
 
-    setMessages((current) => [...current, userMessage])
+    setMessages((current) => [...current, userMessage]);
 
-    handleSubmit(e)
+    handleSubmit(e);
   }
 
   return (
     <div className="flex flex-col h-full p-4 space-y-2">
       <ChatHeader companion={companion} />
-      <ChatMessages
+      <ChatMessages 
         companion={companion}
         isLoading={isLoading}
         messages={messages}
       />
-      <ChatForm
-        isLoading={isLoading}
-        input={input}
-        handleInputChange={handleInputChange}
-        onSubmit={onSubmit}
+      <ChatForm 
+        isLoading={isLoading} 
+        input={input} 
+        handleInputChange={handleInputChange} 
+        onSubmit={onSubmit} 
       />
     </div>
-  )
+   );
 }

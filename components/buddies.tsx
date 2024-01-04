@@ -1,11 +1,11 @@
 import Image from "next/image"
 import Link from "next/link"
 import { Companion } from "@prisma/client"
-import { MessagesSquare } from "lucide-react"
+import { MessagesSquare } from "lucide-react";
 
 import { Card, CardFooter, CardHeader } from "@/components/ui/card"
 
-interface CompanionsProps {
+interface BuddiesProps {
   data: (Companion & {
     _count: {
       messages: number
@@ -13,7 +13,9 @@ interface CompanionsProps {
   })[];
 }
 
-export const Companions = ({ data }: CompanionsProps) => {
+export const Buddies = ({
+  data
+}: BuddiesProps) => {
   if (data.length === 0) {
     return (
       <div className="pt-10 flex flex-col items-center justify-center space-y-3">
@@ -21,13 +23,11 @@ export const Companions = ({ data }: CompanionsProps) => {
           <Image
             fill
             className="grayscale"
-            alt="Empty"
             src="/empty.png"
+            alt="Empty"
           />
         </div>
-        <p className="text-sm text-muted-foreground">
-          No buddies found.
-        </p>
+        <p className="text-sm text-muted-foreground">No buddies found.</p>
       </div>
     )
   }

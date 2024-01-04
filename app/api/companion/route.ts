@@ -14,16 +14,9 @@ export async function POST(req: Request) {
       return new NextResponse("Unauthorized", { status: 401 });
     }
 
-    if (
-      !src ||
-      !name ||
-      !description ||
-      !instructions ||
-      !seed ||
-      !categoryId
-    ) {
+    if (!src || !name || !description || !instructions || !seed || !categoryId) {
       return new NextResponse("Missing required fields", { status: 400 });
-    }
+    };
 
     const isPro = await checkSubscription();
 
@@ -41,7 +34,7 @@ export async function POST(req: Request) {
         description,
         instructions,
         seed,
-      },
+      }
     });
 
     return NextResponse.json(companion);
@@ -49,4 +42,4 @@ export async function POST(req: Request) {
     console.log("[COMPANION_POST]", error);
     return new NextResponse("Internal Error", { status: 500 });
   }
-}
+};
