@@ -2,7 +2,7 @@
 
 import axios from "axios";
 import { useRouter } from "next/navigation";
-import { Companion, Message } from "@prisma/client";
+import { Replica, Message } from "@prisma/client";
 import { useUser } from "@clerk/nextjs";
 
 import { Button } from "@/components/ui/button";
@@ -17,7 +17,7 @@ import {
 import { useToast } from "@/components/ui/use-toast";
 
 interface ChatHeaderProps {
-  companion: Companion & {
+  replica: Replica & {
     messages: Message[];
     _count: {
       messages: number;
@@ -25,14 +25,14 @@ interface ChatHeaderProps {
   };
 };
 
-export const ChatHeader = ({ companion, }: ChatHeaderProps) => {
+export const ChatHeader = ({ replica, }: ChatHeaderProps) => {
   const router = useRouter()
   const { user } = useUser();
   const { toast } = useToast();
 
   const onDelete = async () => {
     try {
-      await axios.delete(`/api/companion/${companion.id}`);
+      await axios.delete(`/api/replica/${replica.id}`);
       toast({
         description: "Success."
       });
@@ -52,21 +52,21 @@ export const ChatHeader = ({ companion, }: ChatHeaderProps) => {
         <Button onClick={() => router.back()} size="icon" variant="ghost">
           <ChevronLeft className="h-8 w-8" />
         </Button>
-        <BotAvatar src={companion.src} />
+        <BotAvatar src={replica.src} />
         <div className="flex flex-col gap-y-1">
           <div className="flex items-center gap-x-2">
-            <p className="font-bold">{companion.name}</p>
+            <p className="font-bold">{replica.name}</p>
             <div className="flex items-center text-xs text-muted-foreground">
               <MessagesSquare className="w-3 h-3 mr-1" />
-              {companion._count.messages}
+              {replica._count.messages}
             </div>
           </div>
           <p className="text-xs text-muted-foreground">
-            Created by {companion.userName}
+            Created by {replica.userName}
           </p>
         </div>
       </div>
-      {user?.id === companion.userId && (
+      {user?.id === replica.userId && (
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button variant="secondary" size="icon">
@@ -74,7 +74,7 @@ export const ChatHeader = ({ companion, }: ChatHeaderProps) => {
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end">
-            <DropdownMenuItem onClick={() => router.push(`/companion/${companion.id}`)}>
+            <DropdownMenuItem onClick={() => router.push(`/replica/${replica.id}`)}>
               <Edit className="w-4 h-4 mr-2" />
               Edit
             </DropdownMenuItem>

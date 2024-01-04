@@ -12,8 +12,8 @@ import './globals.css'
 const montserrat = Montserrat({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Companion.AI',
-  description: 'Your customized companion.',
+  title: 'aiReplica',
+  description: 'Your customized character replica.',
 }
 
 export default function RootLayout({

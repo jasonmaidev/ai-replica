@@ -30,7 +30,7 @@ export async function POST(
       return new NextResponse("Rate limit exceeded", { status: 429 });
     }
 
-    const companion = await prismadb.companion.update({
+    const replica = await prismadb.replica.update({
       where: {
         id: params.chatId,
       },
@@ -45,38 +45,36 @@ export async function POST(
       },
     });
 
-    if (!companion) {
-      return new NextResponse("Companion not found", { status: 404 });
+    if (!replica) {
+      return new NextResponse("Replica not found", { status: 404 });
     }
 
-    const name = companion.id;
-    const companion_file_name = name + ".txt";
+    const name = replica.id;
+    const replica_file_name = name + ".txt";
 
-    const companionKey = {
-      companionName: name!,
+    const replicaKey = {
+      replicaName: name!,
       userId: user.id,
       modelName: "llama2-13b",
     };
     const memoryManager = await MemoryManager.getInstance();
 
-    const records = await memoryManager.readLatestHistory(companionKey);
+    const records = await memoryManager.readLatestHistory(replicaKey);
     if (records.length === 0) {
-      await memoryManager.seedChatHistory(companion.seed, "\n\n", companionKey);
+      await memoryManager.seedChatHistory(replica.seed, "\n\n", replicaKey);
     }
-    await memoryManager.writeToHistory("User: " + prompt + "\n", companionKey);
+    await memoryManager.writeToHistory("User: " + prompt + "\n", replicaKey);
 
     // Query Pinecone
 
-    const recentChatHistory = await memoryManager.readLatestHistory(
-      companionKey
-    );
+    const recentChatHistory = await memoryManager.readLatestHistory(replicaKey);
 
     // Right now the preamble is included in the similarity search, but that
     // shouldn't be an issue
 
     const similarDocs = await memoryManager.vectorSearch(
       recentChatHistory,
-      companion_file_name
+      replica_file_name
     );
 
     let relevantHistory = "";
@@ -102,15 +100,15 @@ export async function POST(
       await model
         .call(
           `
-        ONLY generate plain sentences without prefix of who is speaking. DO NOT use ${companion.name}: prefix. 
+        ONLY generate plain sentences without prefix of who is speaking. DO NOT use ${replica.name}: prefix. 
 
-        ${companion.instructions}
+        ${replica.instructions}
 
-        Below are relevant details about ${companion.name}'s past and the conversation you are in.
+        Below are relevant details about ${replica.name}'s past and the conversation you are in.
         ${relevantHistory}
 
 
-        ${recentChatHistory}\n${companion.name}:`
+        ${recentChatHistory}\n${replica.name}:`
         )
         .catch(console.error)
     );
@@ -119,16 +117,16 @@ export async function POST(
     const chunks = cleaned.split("\n");
     const response = chunks[0];
 
-    await memoryManager.writeToHistory("" + response.trim(), companionKey);
+    await memoryManager.writeToHistory("" + response.trim(), replicaKey);
     var Readable = require("stream").Readable;
 
     let s = new Readable();
     s.push(response);
     s.push(null);
     if (response !== undefined && response.length > 1) {
-      memoryManager.writeToHistory("" + response.trim(), companionKey);
+      memoryManager.writeToHistory("" + response.trim(), replicaKey);
 
-      await prismadb.companion.update({
+      await prismadb.replica.update({
         where: {
           id: params.chatId,
         },

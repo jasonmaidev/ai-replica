@@ -4,17 +4,17 @@ import { auth, redirectToSignIn } from "@clerk/nextjs";
 import prismadb from "@/lib/prismadb";
 import { checkSubscription } from "@/lib/subscription";
 
-import { CompanionForm } from "./components/companion-form";
+import { ReplicaForm } from "./components/replica-form";
 
-interface CompanionIdPageProps {
+interface ReplicaIdPageProps {
   params: {
-    companionId: string;
+    replicaId: string;
   };
 };
 
-const CompanionIdPage = async ({
+const ReplicaIdPage = async ({
   params
-}: CompanionIdPageProps) => {
+}: ReplicaIdPageProps) => {
   const { userId } = auth();
 
   if (!userId) {
@@ -27,18 +27,18 @@ const CompanionIdPage = async ({
     return redirect("/");
   }
 
-  const companion = await prismadb.companion.findUnique({
+  const replica = await prismadb.replica.findUnique({
     where: {
-      id: params.companionId,
+      id: params.replicaId,
       userId,
     }
   });
 
   const categories = await prismadb.category.findMany();
 
-  return ( 
-    <CompanionForm initialData={companion} categories={categories} />
+  return (
+    <ReplicaForm initialData={replica} categories={categories} />
   );
 }
- 
-export default CompanionIdPage;
+
+export default ReplicaIdPage;

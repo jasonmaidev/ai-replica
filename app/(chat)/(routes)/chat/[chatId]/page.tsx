@@ -20,7 +20,7 @@ const ChatIdPage = async ({
     return redirectToSignIn();
   }
 
-  const companion = await prismadb.companion.findUnique({
+  const replica = await prismadb.replica.findUnique({
     where: {
       id: params.chatId
     },
@@ -42,13 +42,13 @@ const ChatIdPage = async ({
   });
 
 
-  if (!companion) {
+  if (!replica) {
     return redirect("/");
   }
 
   return (
-    <ChatClient companion={companion} />
+    <ChatClient replica={replica} />
   );
 }
- 
+
 export default ChatIdPage;

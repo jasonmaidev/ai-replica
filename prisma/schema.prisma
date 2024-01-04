@@ -12,10 +12,10 @@ generator client {
 model Category {
   id            String @id @default(uuid())
   name          String
-  companions    Companion[]
+  replicas   Replica[]
 }
 
-model Companion {
+model Replica {
   id            String @id @default(uuid())
   userId        String
   userName      String
@@ -49,12 +49,12 @@ model Message {
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
 
-  companionId String
+  replicaId String
   userId      String
 
-  companion   Companion @relation(fields: [companionId], references: [id], onDelete: Cascade)
+  replica   Replica @relation(fields: [replicaId], references: [id], onDelete: Cascade)
   
-  @@index([companionId])
+  @@index([replicaId])
 }
 
 model UserSubscription {

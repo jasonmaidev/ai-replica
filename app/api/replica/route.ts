@@ -14,9 +14,16 @@ export async function POST(req: Request) {
       return new NextResponse("Unauthorized", { status: 401 });
     }
 
-    if (!src || !name || !description || !instructions || !seed || !categoryId) {
+    if (
+      !src ||
+      !name ||
+      !description ||
+      !instructions ||
+      !seed ||
+      !categoryId
+    ) {
       return new NextResponse("Missing required fields", { status: 400 });
-    };
+    }
 
     const isPro = await checkSubscription();
 
@@ -24,7 +31,7 @@ export async function POST(req: Request) {
       return new NextResponse("Pro subscription required", { status: 403 });
     }
 
-    const companion = await prismadb.companion.create({
+    const replica = await prismadb.replica.create({
       data: {
         categoryId,
         userId: user.id,
@@ -34,12 +41,12 @@ export async function POST(req: Request) {
         description,
         instructions,
         seed,
-      }
+      },
     });
 
-    return NextResponse.json(companion);
+    return NextResponse.json(replica);
   } catch (error) {
-    console.log("[COMPANION_POST]", error);
+    console.log("[REPLICA_POST]", error);
     return new NextResponse("Internal Error", { status: 500 });
   }
-};
+}

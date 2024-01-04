@@ -1,33 +1,33 @@
 import Image from "next/image"
 import Link from "next/link"
-import { Companion } from "@prisma/client"
-import { MessagesSquare } from "lucide-react";
+import { Replica } from "@prisma/client"
+import { MessagesSquare } from "lucide-react"
 
 import { Card, CardFooter, CardHeader } from "@/components/ui/card"
 
-interface BuddiesProps {
-  data: (Companion & {
+interface ReplicasProps {
+  data: (Replica & {
     _count: {
       messages: number
     },
   })[];
 }
 
-export const Buddies = ({
-  data
-}: BuddiesProps) => {
+export const Replicas = ({ data }: ReplicasProps) => {
   if (data.length === 0) {
     return (
       <div className="pt-10 flex flex-col items-center justify-center space-y-3">
         <div className="relative w-60 h-60">
           <Image
             fill
-            className="grayscale"
-            src="/empty.png"
+            className="grayscale rounded-md opacity-80"
             alt="Empty"
+            src="/homermissing.webp"
           />
         </div>
-        <p className="text-sm text-muted-foreground">No buddies found.</p>
+        <p className="text-sm text-muted-foreground">
+          No replicas found.
+        </p>
       </div>
     )
   }

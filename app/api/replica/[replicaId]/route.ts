@@ -6,24 +6,31 @@ import { checkSubscription } from "@/lib/subscription";
 
 export async function PATCH(
   req: Request,
-  { params }: { params: { companionId: string } }
+  { params }: { params: { replicaId: string } }
 ) {
   try {
     const body = await req.json();
     const user = await currentUser();
     const { src, name, description, instructions, seed, categoryId } = body;
 
-    if (!params.companionId) {
-      return new NextResponse("Companion ID required", { status: 400 });
+    if (!params.replicaId) {
+      return new NextResponse("Replica ID required", { status: 400 });
     }
 
     if (!user || !user.id || !user.firstName) {
       return new NextResponse("Unauthorized", { status: 401 });
     }
 
-    if (!src || !name || !description || !instructions || !seed || !categoryId) {
+    if (
+      !src ||
+      !name ||
+      !description ||
+      !instructions ||
+      !seed ||
+      !categoryId
+    ) {
       return new NextResponse("Missing required fields", { status: 400 });
-    };
+    }
 
     const isPro = await checkSubscription();
 
@@ -31,9 +38,9 @@ export async function PATCH(
       return new NextResponse("Pro subscription required", { status: 403 });
     }
 
-    const companion = await prismadb.companion.update({
+    const replica = await prismadb.replica.update({
       where: {
-        id: params.companionId,
+        id: params.replicaId,
         userId: user.id,
       },
       data: {
@@ -45,19 +52,19 @@ export async function PATCH(
         description,
         instructions,
         seed,
-      }
+      },
     });
 
-    return NextResponse.json(companion);
+    return NextResponse.json(replica);
   } catch (error) {
-    console.log("[COMPANION_PATCH]", error);
+    console.log("[REPLICA_PATCH]", error);
     return new NextResponse("Internal Error", { status: 500 });
   }
-};
+}
 
 export async function DELETE(
   request: Request,
-  { params }: { params: { companionId: string } }
+  { params }: { params: { replicaId: string } }
 ) {
   try {
     const { userId } = auth();
@@ -66,16 +73,16 @@ export async function DELETE(
       return new NextResponse("Unauthorized", { status: 401 });
     }
 
-    const companion = await prismadb.companion.delete({
+    const replica = await prismadb.replica.delete({
       where: {
         userId,
-        id: params.companionId
-      }
+        id: params.replicaId,
+      },
     });
 
-    return NextResponse.json(companion);
+    return NextResponse.json(replica);
   } catch (error) {
-    console.log("[COMPANION_DELETE]", error);
+    console.log("[REPLICA_DELETE]", error);
     return new NextResponse("Internal Error", { status: 500 });
   }
-};
+}

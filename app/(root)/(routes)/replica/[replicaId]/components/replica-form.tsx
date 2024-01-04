@@ -6,7 +6,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "next/navigation";
 import { Wand2 } from "lucide-react";
-import { Category, Companion } from "@prisma/client";
+import { Category, Replica } from "@prisma/client";
 
 import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
@@ -54,15 +54,15 @@ const formSchema = z.object({
   }),
 });
 
-interface CompanionFormProps {
+interface ReplicaFormProps {
   categories: Category[];
-  initialData: Companion | null;
+  initialData: Replica | null;
 };
 
-export const CompanionForm = ({
+export const ReplicaForm = ({
   categories,
   initialData
-}: CompanionFormProps) => {
+}: ReplicaFormProps) => {
   const { toast } = useToast();
   const router = useRouter();
 
@@ -83,9 +83,9 @@ export const CompanionForm = ({
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
       if (initialData) {
-        await axios.patch(`/api/companion/${initialData.id}`, values);
+        await axios.patch(`/api/replica/${initialData.id}`, values);
       } else {
-        await axios.post("/api/companion", values);
+        await axios.post("/api/replica", values);
       }
 
       toast({
@@ -104,7 +104,7 @@ export const CompanionForm = ({
     }
   };
 
-  return ( 
+  return (
     <div className="h-full p-4 space-y-2 max-w-3xl mx-auto">
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 pb-10">
@@ -112,7 +112,7 @@ export const CompanionForm = ({
             <div>
               <h3 className="text-lg font-medium">General Information</h3>
               <p className="text-sm text-muted-foreground">
-                General information about your Companion
+                General information about your Replica
               </p>
             </div>
             <Separator className="bg-primary/10" />
@@ -139,7 +139,7 @@ export const CompanionForm = ({
                     <Input disabled={isLoading} placeholder="Elon Musk" {...field} />
                   </FormControl>
                   <FormDescription>
-                    This is how your AI Companion will be named.
+                    This is how your AI Replica will be named.
                   </FormDescription>
                   <FormMessage />
                 </FormItem>
@@ -155,7 +155,7 @@ export const CompanionForm = ({
                     <Input disabled={isLoading} placeholder="CEO & Founder of Tesla, SpaceX" {...field} />
                   </FormControl>
                   <FormDescription>
-                    Short description for your AI Companion
+                    Short description for your AI Replica
                   </FormDescription>
                   <FormMessage />
                 </FormItem>
@@ -206,7 +206,7 @@ export const CompanionForm = ({
                   <Textarea disabled={isLoading} rows={7} className="bg-background resize-none" placeholder={PREAMBLE} {...field} />
                 </FormControl>
                 <FormDescription>
-                  Describe in detail your companion&apos;s backstory and relevant details.
+                  Describe in detail your replica&apos;s backstory and relevant details.
                 </FormDescription>
                 <FormMessage />
               </FormItem>
@@ -222,7 +222,7 @@ export const CompanionForm = ({
                   <Textarea disabled={isLoading} rows={7} className="bg-background resize-none" placeholder={SEED_CHAT} {...field} />
                 </FormControl>
                 <FormDescription>
-                  Write couple of examples of a human chatting with your AI companion, write expected answers.
+                  Write couple of examples of a human chatting with your AI replica, write expected answers.
                 </FormDescription>
                 <FormMessage />
               </FormItem>
@@ -230,12 +230,12 @@ export const CompanionForm = ({
           />
           <div className="w-full flex justify-center">
             <Button size="lg" disabled={isLoading}>
-              {initialData ? "Edit your companion" : "Create your companion"}
+              {initialData ? "Edit your replica" : "Create your replica"}
               <Wand2 className="w-4 h-4 ml-2" />
             </Button>
           </div>
         </form>
       </Form>
     </div>
-   );
+  );
 };

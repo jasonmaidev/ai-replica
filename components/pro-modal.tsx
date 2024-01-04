@@ -7,6 +7,7 @@ import {
   Dialog,
   DialogContent,
   DialogDescription,
+  DialogFooter,
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog"
@@ -49,14 +50,14 @@ export const ProModal = () => {
   return (
     <Dialog open={proModal.isOpen} onOpenChange={proModal.onClose}>
       <DialogContent>
-        <DialogHeader className="space-y-4 ">
-          <DialogTitle className="text-center text-slate-800">
-            Replica Creation
+        <DialogHeader className="space-y-4">
+          <DialogTitle className="text-center">
+            Upgrade to Pro
           </DialogTitle>
-          <DialogDescription className="text-center space-y-2 text-slate-800">
-            Coming soon in
-            <span className="text-pink-500 mx-1 font-medium">V1 Release</span>
-            of ai Replica!
+          <DialogDescription className="text-center space-y-2">
+            Create
+            <span className="text-sky-500 mx-1 font-medium">Custom AI</span>
+            Companions!
           </DialogDescription>
         </DialogHeader>
         <Separator />
@@ -84,6 +85,14 @@ export const ProModal = () => {
             </p>
           </li>
         </ul>
+        <div className="flex justify-between">
+          <p className="text-2xl font-medium">
+            $9<span className="text-sm font-normal">.99 / mo</span>
+          </p>
+          <Button onClick={onSubscribe} disabled={loading} variant="premium">
+            Subscribe
+          </Button>
+        </div>
       </DialogContent>
     </Dialog>
   );
