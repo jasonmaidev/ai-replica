@@ -25,11 +25,17 @@ export const Navbar = ({
     <div className="fixed w-full z-50 flex justify-between items-center py-2 px-4 h-16 border-b border-primary/10 bg-secondary">
       <div className="flex items-center">
         <MobileSidebar isPro={isPro} />
-        <Link href="/">
-          <h1 className={cn("hidden md:block text-xl md:text-3xl font-bold text-primary", font.className)}>
-            aiReplica
+        <div className="flex flex-row items-center gap-1">
+          <h1 className={cn("hidden md:block text-xl md:text-3xl font-bold text-slate-500", font.className)}>
+            ai
           </h1>
-        </Link>
+          <Link href="/">
+            <h1 className={cn("hidden md:block text-xl md:text-3xl font-bold bg-gradient-to-r from-fuchsia-500 via-cyan-400 to-teal-300 text-transparent bg-clip-text", font.className)}>
+              Replica
+            </h1>
+          </Link>
+          <span className="text-sm border ml-2 p-1 px-4 rounded-full text-slate-400 border-slate-400">Beta</span>
+        </div>
       </div>
       <div className="flex items-center gap-x-3">
         {!isPro && (

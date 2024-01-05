@@ -52,28 +52,28 @@ export const ProModal = () => {
       <DialogContent>
         <DialogHeader className="space-y-4">
           <DialogTitle className="text-center">
-            Upgrade to Pro
+            Create Character Replicas
           </DialogTitle>
           <DialogDescription className="text-center space-y-2">
-            Create
-            <span className="text-sky-500 mx-1 font-medium">Custom AI</span>
-            Companions!
+            Coming in
+            <span className="text-pink-500 mx-1 font-medium">V1 Relase</span>
+            of aiReplica.xyz
           </DialogDescription>
         </DialogHeader>
         <Separator />
-        <div className="flex justify-between text-slate-800">
+        <div className="flex justify-between">
           <p className="text-sm">
-            Feature is temporarily disabled due to recent increase in OpenAi&#39;s token pricing.
-            You will be able to <span className="text-sm font-bold">create replicas of any characters</span> for free after we
-            establish a proper cost model for the infrastructure stack on our end.
+            This feature is temporarily disabled due to recent increase in OpenAi&#39;s token pricing.
+            You will be able to <span className="text-sm font-bold">create replicas of any characters</span> for free after
+            we establish a proper pricing model for the infrastructure stack on our end.
           </p>
         </div>
-        <div className="flex justify-between text-slate-800">
+        <div className="flex justify-between">
           <p className="text-sm font-bold">
             Also coming in V1:
           </p>
         </div>
-        <ul className="list-disc pl-8 text-slate-800">
+        <ul className="list-disc pl-8">
           <li>
             <p className="text-sm">
               Replica text-to-voice
@@ -85,13 +85,11 @@ export const ProModal = () => {
             </p>
           </li>
         </ul>
+
         <div className="flex justify-between">
-          <p className="text-2xl font-medium">
-            $9<span className="text-sm font-normal">.99 / mo</span>
+          <p className="text-sm">
+            For now, please enjoy the awesome characters that are currently hanging out in aiReplica. They shall keep you company. =)
           </p>
-          <Button onClick={onSubscribe} disabled={loading} variant="premium">
-            Subscribe
-          </Button>
         </div>
       </DialogContent>
     </Dialog>

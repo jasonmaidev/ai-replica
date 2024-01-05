@@ -58,7 +58,7 @@ export const ChatClient = ({
   }
 
   return (
-    <div className="flex flex-col h-full p-4 space-y-2">
+    <div className="flex flex-col p-4 md:px-8 md:py-4 space-y-2">
       <ChatHeader replica={replica} />
       <ChatMessages
         replica={replica}

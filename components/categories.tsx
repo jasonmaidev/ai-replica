@@ -39,16 +39,20 @@ export const Categories = ({
           text-center 
           text-xs 
           md:text-sm 
+          font-medium
           px-2 
           md:px-4 
           py-2 
           md:py-3 
-          rounded-md 
-          bg-primary/10 
-          hover:opacity-75 
+          rounded-full
+          border
+          border-slate-400
+          text-slate-400
+          hover:border-pink-400
+          hover:text-pink-400
           transition
         `,
-          !categoryId ? 'bg-primary/25' : 'bg-primary/10'
+          !categoryId ? `border-teal-400 text-teal-400` : 'border-slate-400'
         )}
       >
         Newest
@@ -62,16 +66,20 @@ export const Categories = ({
             text-center 
             text-xs 
             md:text-sm 
+            font-medium
             px-2 
             md:px-4 
             py-2 
             md:py-3 
-            rounded-md 
-            bg-primary/10 
-            hover:opacity-75 
+            rounded-full
+            border
+            border-slate-400
+            text-slate-400
+            hover:border-pink-400
+            hover:text-pink-400
             transition
           `,
-            item.id === categoryId ? 'bg-primary/25' : 'bg-primary/10'
+            item.id === categoryId ? `border-teal-400 text-teal-400` : 'border-slate-400'
           )}
           key={item.id}
         >
