@@ -38,9 +38,11 @@ export const Navbar = ({
         </div>
       </div>
       <div className="flex items-center gap-x-3">
-        <span className="hidden md:block text-xs">
-          Built with 💛 by JasonMai.dev
-        </span>
+        <Link href="https://jasonmai.dev/" target="_blank">
+          <span className="hidden md:block text-xs">
+            Built with 💛 by JasonMai.dev
+          </span>
+        </Link>
         {!isPro && (
           <Button onClick={proModal.onOpen} size="sm" variant="premium">
             V1 coming Soon
