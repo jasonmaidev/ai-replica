@@ -34,13 +34,16 @@ export const Navbar = ({
               Replica
             </h1>
           </Link>
-          <span className="text-sm border ml-2 p-1 px-4 rounded-full text-slate-400 border-slate-400">Beta</span>
+          <span className="hidden md:block text-sm border ml-2 p-1 px-4 rounded-full text-slate-400 border-slate-400">Beta</span>
         </div>
       </div>
       <div className="flex items-center gap-x-3">
+        <span className="hidden md:block text-xs">
+          Built with 💛 by JasonMai.dev
+        </span>
         {!isPro && (
           <Button onClick={proModal.onOpen} size="sm" variant="premium">
-            V1 Release
+            V1 coming Soon
             <Sparkles className="h-4 w-4 fill-white text-white ml-2" />
           </Button>
         )}

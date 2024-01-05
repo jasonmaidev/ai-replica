@@ -44,7 +44,8 @@ export const Categories = ({
           md:px-4 
           py-2 
           md:py-3 
-          rounded-full
+          rounded-xl
+          md:rounded-full
           border
           border-slate-400
           text-slate-400
@@ -71,7 +72,8 @@ export const Categories = ({
             md:px-4 
             py-2 
             md:py-3 
-            rounded-full
+            rounded-xl
+            md:rounded-full
             border
             border-slate-400
             text-slate-400
