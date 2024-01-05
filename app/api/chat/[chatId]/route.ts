@@ -55,7 +55,7 @@ export async function POST(
     const replicaKey = {
       replicaName: name!,
       userId: user.id,
-      modelName: "llama2-13b",
+      modelName: "llama2-70b",
     };
     const memoryManager = await MemoryManager.getInstance();
 
@@ -69,8 +69,7 @@ export async function POST(
 
     const recentChatHistory = await memoryManager.readLatestHistory(replicaKey);
 
-    // Right now the preamble is included in the similarity search, but that
-    // shouldn't be an issue
+    // Right now the preamble replica instructions are included in the similarity search
 
     const similarDocs = await memoryManager.vectorSearch(
       recentChatHistory,
@@ -82,10 +81,11 @@ export async function POST(
       relevantHistory = similarDocs.map((doc) => doc.pageContent).join("\n");
     }
     const { handlers } = LangChainStream();
+
     // Call Replicate for inference
     const model = new Replicate({
       model:
-        "a16z-infra/llama-2-13b-chat:df7690f1994d94e96ad9d568eac121aecf50684a0b0963b25a41cc40061269e5",
+        "a16z-infra/llama-2-70b-chat:df7690f1994d94e96ad9d568eac121aecf50684a0b0963b25a41cc40061269e5",
       input: {
         max_length: 2048,
       },
@@ -106,7 +106,6 @@ export async function POST(
 
         Below are relevant details about ${replica.name}'s past and the conversation you are in.
         ${relevantHistory}
-
 
         ${recentChatHistory}\n${replica.name}:`
         )
