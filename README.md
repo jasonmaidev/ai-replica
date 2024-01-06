@@ -1,34 +1,25 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Welcome to aiReplica.xyz
 
-## Getting Started
+Ever wondered what it's like to talk with your `favorite Characters`? Well now you can!
 
-First, run the development server:
+aiReplica leverages `Meta Llama-2` models to bring to you the latest and most performant machine-learning responses for just about any character creation you can think of!
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+Try it out at [https://www.aiReplica.xyz/](https://www.aiReplica.xyz/).
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The live app is protected by `Clerk authentication` as a simple 1-step signin using `Gmail` as well being a preventative measure agaisnt bot-spamming.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Beta MVP Access
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Anyone can use the app. All you need is to have a Gmail account and it doesn't even have to be your main account!
 
-## Learn More
+If you have trouble accessing the app, please shoot me an email over at jasonmai.dev@gmail.com
 
-To learn more about Next.js, take a look at the following resources:
+### Getting Started
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Once you've logged in, simply select any of the character `Replicas` that you see on the homepage and start chatting with them. Daily chat is currently limited to 40 messages per day until V1's full release when I have some time to setup a proper pricing model on the infrastructue stack. Nevertheless, the app will always be `free to use` as it will never require any payment information.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+### Features Coming to V1
 
-## Deploy on Vercel
+Replica text-to-voice
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Image generation
