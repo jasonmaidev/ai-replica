@@ -12,7 +12,7 @@ import './globals.css'
 const montserrat = Montserrat({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'aiReplica | Chat with Your Favorite Character Replicas',
+  title: 'aiReplica',
   description: 'Your customized character replica.',
 }
 
