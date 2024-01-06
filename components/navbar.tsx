@@ -43,12 +43,6 @@ export const Navbar = ({
             Built with 💛 by JasonMai.dev
           </span>
         </Link>
-        {!isPro && (
-          <Button onClick={proModal.onOpen} size="sm" variant="premium">
-            V1 coming Soon
-            <Sparkles className="h-4 w-4 fill-white text-white ml-2" />
-          </Button>
-        )}
         <ModeToggle />
         <UserButton afterSignOutUrl="/" />
       </div>
