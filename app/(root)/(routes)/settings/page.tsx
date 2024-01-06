@@ -1,9 +1,7 @@
 import { ModeToggle } from "@/components/mode-toggle";
-import { SubscriptionButton } from "@/components/subscription-button";
-import { checkSubscription } from "@/lib/subscription";
+import { UserButton } from "@clerk/nextjs";
 
 const SettingsPage = async () => {
-  const isPro = await checkSubscription();
 
   return (
     <div className="h-full p-4 md:px-8 md:py-4 space-y-2">
@@ -13,6 +11,12 @@ const SettingsPage = async () => {
           Adjust viewing mode here :
         </p>
         <ModeToggle />
+      </div>
+      <div className="text-muted-foreground text-sm flex flex-row items-center gap-4">
+        <p>
+          Manage account :
+        </p>
+        <UserButton afterSignOutUrl="/" />
       </div>
     </div>
   );
