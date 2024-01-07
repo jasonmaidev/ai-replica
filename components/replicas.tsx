@@ -33,36 +33,41 @@ export const Replicas = ({ data }: ReplicasProps) => {
   }
 
   return (
-    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-2 pb-10">
-      {data.map((item) => (
-        <Card key={item.name} className="rounded-3xl cursor-pointer border hover:bg-cyan-300/20 transition bg-transparent">
-          <Link href={`/chat/${item.id}`}>
-            <CardHeader className="flex items-center justify-center text-center text-muted-foreground">
-              <div className="relative w-32 h-32">
-                <Image
-                  src={item.src}
-                  fill
-                  className="rounded-xl object-cover"
-                  alt="Character"
-                />
-              </div>
-              <p className="font-bold">
-                {item.name}
-              </p>
-              <p className="text-xs">
-                {item.description}
-              </p>
-            </CardHeader>
-            <CardFooter className="flex items-center justify-between text-xs text-muted-foreground">
-              <p className="lowercase">@{item.userName}</p>
-              <div className="flex items-center">
-                <MessagesSquare className="w-3 h-3 mr-1" />
-                {item._count.messages}
-              </div>
-            </CardFooter>
-          </Link>
-        </Card>
-      ))}
-    </div>
+    <>
+      <div className="text-center text-md md:text-xl text-slate-500 p-2 pb-4">
+        <p>Choose a replica below and start chatting with them!</p>
+      </div>
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-2 pb-10">
+        {data.map((item) => (
+          <Card key={item.name} className="rounded-3xl cursor-pointer border hover:bg-cyan-300/20 transition bg-transparent">
+            <Link href={`/chat/${item.id}`}>
+              <CardHeader className="flex items-center justify-center text-center text-muted-foreground">
+                <div className="relative w-32 h-32">
+                  <Image
+                    src={item.src}
+                    fill
+                    className="rounded-xl object-cover"
+                    alt="Character"
+                  />
+                </div>
+                <p className="font-bold">
+                  {item.name}
+                </p>
+                <p className="text-xs">
+                  {item.description}
+                </p>
+              </CardHeader>
+              <CardFooter className="flex items-center justify-between text-xs text-muted-foreground">
+                <p className="lowercase">@{item.userName}</p>
+                <div className="flex items-center">
+                  <MessagesSquare className="w-3 h-3 mr-1" />
+                  {item._count.messages}
+                </div>
+              </CardFooter>
+            </Link>
+          </Card>
+        ))}
+      </div>
+    </>
   )
 }
