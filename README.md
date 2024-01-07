@@ -23,3 +23,13 @@ Once you've logged in, simply select any of the character `Replicas` that you se
 Replica text-to-voice
 
 Image generation
+
+### Vector Stores, Embeddings, & Rate-Limiting Resources + Documentations
+
+[https://www.pinecone.io/learn/javascript-chatbot/](https://www.pinecone.io/learn/javascript-chatbot/)
+[https://js.langchain.com/docs/modules/data_connection/retrievers/](https://js.langchain.com/docs/modules/data_connection/retrievers/)
+[https://js.langchain.com/docs/integrations/text_embedding/openai](https://js.langchain.com/docs/integrations/text_embedding/openai)
+[https://js.langchain.com/docs/integrations/text_embedding/openai](https://js.langchain.com/docs/integrations/text_embedding/openai)
+[https://www.prisma.io/docs/getting-started/setup-prisma/start-from-scratch/relational-databases/connect-your-database-node-mysql](https://www.prisma.io/docs/getting-started/setup-prisma/start-from-scratch/relational-databases/connect-your-database-node-mysql)
+[https://upstash.com/blog/upstash-ratelimit](https://upstash.com/blog/upstash-ratelimit)
+[https://github.com/upstash/ratelimit?tab=readme-ov-file#docs](https://github.com/upstash/ratelimit?tab=readme-ov-file#docs)
