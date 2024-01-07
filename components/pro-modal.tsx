@@ -63,9 +63,10 @@ export const ProModal = () => {
         <Separator />
         <div className="flex justify-between">
           <p className="text-sm">
-            This feature is temporarily disabled due to recent increase in OpenAi&#39;s token pricing.
-            You will be able to <span className="text-sm font-bold">create replicas of any characters</span> for free after
-            we establish a proper pricing model for the infrastructure stack on our end.
+            This feature is temporarily disabled due to recent increase in OpenAi&#39;s pricing.
+            You will be able to <span className="text-sm font-bold">create replicas of any characters</span>
+            for free with unlimited chat after having some time to gauge the estimated LLM total
+            run-cost and establish a proper pricing model for the infrastructure on our end.
           </p>
         </div>
         <div className="flex justify-between">
