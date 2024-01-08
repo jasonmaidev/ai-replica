@@ -65,11 +65,12 @@ export const ChatHeader = ({ replica, }: ChatHeaderProps) => {
             Created by {replica.userName}
           </p>
           <p className="text-xs font-medium text-muted-foreground text-pink-600">
-            *All chats are cumulatively(including other Replicas) limited to 50 messages per day until V1 release.
+            *All chats are cumulatively(including other characters) limited to 50 messages per day until V1 release.
           </p>
           <p className="text-xs font-medium text-muted-foreground">
-            App MVP is currently deployed on free tier infra as you may need to repeat your message to the character
-            replica initially (if it does not reply) for it to learn the context and properly respond.
+            App MVP is partially deployed on free tier infrastructure as you may need to repeat your message to the character
+            initially (if it doesn&#39;t reply) so that it can learn the context and properly respond. Please be patient with them,
+            they are kind of born just yesterday! =)
           </p>
         </div>
       </div>

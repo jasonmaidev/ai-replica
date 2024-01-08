@@ -2,11 +2,11 @@
 
 Ever wondered what it's like to talk with your `favorite Characters`? Well now you can!
 
-aiReplica leverages `Meta Llama-2` models to bring to you the latest and most performant machine-learning responses for just about any character creation you can think of!
+aiReplica leverages `Meta Llama-2` model (a16z/infra) to bring to you the latest and most performant machine-learning responses for just about any character you can think of!
 
 Try it out at [https://www.aiReplica.xyz/](https://www.aiReplica.xyz/).
 
-The live app is protected by `Clerk authentication` as a simple 1-step signin using `Gmail` as well being a preventative measure agaisnt bot-spamming.
+The live app is protected by `Clerk Authentication` as a simple one-step sign-in using `Gmail` as well being a preventative measure agaisnt bot-spamming.
 
 ### Beta MVP Access
 
@@ -16,20 +16,25 @@ If you have trouble accessing the app, please shoot me an email over at jasonmai
 
 ### Getting Started
 
-Once you've logged in, simply select any of the character `Replicas` that you see on the homepage and start chatting with them. Daily chat is currently limited to 40 messages per day until V1's full release when I have some time to setup a proper pricing model on the infrastructue stack. Nevertheless, the app will always be `free to use` as it will never require any payment information.
+Once you've logged in, simply select any of the character `Replicas` that you see on the homepage and start chatting with them. Daily chat is currently limited to 50 messages per day until V1's full release when I have some time to setup a proper pricing model on the infrastructue stack. Nevertheless, the app will always be `free to use` as it will never ask for any payment information.
 
 ### Features Coming to V1
 
-Replica text-to-voice
+ * Replica text-to-voice
+ * Image generation
 
-Image generation
-
-### Vector Stores, Embeddings, & Rate-Limiting Resources + Documentations
+### Vector Stores, Embeddings, & Rate-Limiting References
 
 [https://www.pinecone.io/learn/javascript-chatbot/](https://www.pinecone.io/learn/javascript-chatbot/)
-[https://js.langchain.com/docs/modules/data_connection/retrievers/](https://js.langchain.com/docs/modules/data_connection/retrievers/)
 [https://js.langchain.com/docs/integrations/text_embedding/openai](https://js.langchain.com/docs/integrations/text_embedding/openai)
-[https://js.langchain.com/docs/integrations/text_embedding/openai](https://js.langchain.com/docs/integrations/text_embedding/openai)
+[https://js.langchain.com/docs/modules/indexes/vector_stores/integrations/pinecone](https://js.langchain.com/docs/modules/indexes/vector_stores/integrations/pinecone)
+[https://js.langchain.com/docs/modules/models/llms/integrations#replicate](https://js.langchain.com/docs/modules/models/llms/integrations#replicate)
+[https://js.langchain.com/docs/modules/chains/index_related_chains/retrieval_qa](https://js.langchain.com/docs/modules/chains/index_related_chains/retrieval_qa)
 [https://www.prisma.io/docs/getting-started/setup-prisma/start-from-scratch/relational-databases/connect-your-database-node-mysql](https://www.prisma.io/docs/getting-started/setup-prisma/start-from-scratch/relational-databases/connect-your-database-node-mysql)
 [https://upstash.com/blog/upstash-ratelimit](https://upstash.com/blog/upstash-ratelimit)
 [https://github.com/upstash/ratelimit?tab=readme-ov-file#docs](https://github.com/upstash/ratelimit?tab=readme-ov-file#docs)
+
+### Huge Shoutout to a16z-infra
+
+The inspiration for the project and ongoing development.
+[https://www.youtube.com/redirect?event=video_description&redir_token=QUFFLUhqazItOHh6eUUwNVJqdzF3d05xazlNRzJEWC1ZUXxBQ3Jtc0trZmdWSkY0TVBhU3BPYnRoTUhpOWFNYWdJZkJqaGlmNjhsS2hYeEdHUjdkd2U0Y2tDSmdBb2FvMDN2UkVUeWVCaG1FLUVCRGJsblhjbGN2dmtjQ3BvY2tDU2cwdkJtMTFRNzFObHN4c3dNSFpGdFpxMA&q=https%3A%2F%2Fgithub.com%2Fa16z-infra%2Fcompanion-app&v=PjYWpd7xkaMs](https://www.youtube.com/redirect?event=video_description&redir_token=QUFFLUhqazItOHh6eUUwNVJqdzF3d05xazlNRzJEWC1ZUXxBQ3Jtc0trZmdWSkY0TVBhU3BPYnRoTUhpOWFNYWdJZkJqaGlmNjhsS2hYeEdHUjdkd2U0Y2tDSmdBb2FvMDN2UkVUeWVCaG1FLUVCRGJsblhjbGN2dmtjQ3BvY2tDU2cwdkJtMTFRNzFObHN4c3dNSFpGdFpxMA&q=https%3A%2F%2Fgithub.com%2Fa16z-infra%2Fcompanion-app&v=PjYWpd7xkaMs)

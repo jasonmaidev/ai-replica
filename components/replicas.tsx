@@ -35,7 +35,7 @@ export const Replicas = ({ data }: ReplicasProps) => {
   return (
     <>
       <div className="text-center text-md md:text-xl text-slate-500 p-2 pb-4">
-        <p>Choose a replica below and start chatting with them!</p>
+        <p>Choose a character below and start chatting with them!</p>
       </div>
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-2 pb-10">
         {data.map((item) => (
