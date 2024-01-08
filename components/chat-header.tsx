@@ -47,59 +47,47 @@ export const ChatHeader = ({ replica, }: ChatHeaderProps) => {
   }
 
   return (
-    <>
-      <div className="block: md:hidden border border-slate-300/20 p-2 rounded-md">
-        <p className="text-xs font-medium text-muted-foreground">
-          *Repeat your message to the character (if it doesn&#39;t reply) initially, so that it can learn the context and properly respond. Please be patient with them,
-          they are mostly born just yesterday! 😊
-        </p>
-      </div>
-      <div className="flex w-full justify-between items-center border-b border-primary/10 pb-4">
-        <div className="flex gap-x-2 items-center">
-          <Button onClick={() => router.back()} size="icon" variant="ghost">
-            <ChevronLeft className="h-8 w-8" />
-          </Button>
-          <BotAvatar src={replica.src} />
-          <div className="flex flex-col gap-y-1">
-            <div className="flex items-center gap-x-2">
-              <p className="font-bold">{replica.name}</p>
-              <div className="flex items-center text-xs text-muted-foreground">
-                <MessagesSquare className="w-3 h-3 mr-1" />
-                {replica._count.messages}
-              </div>
+    <div className="flex w-full justify-between items-center border-b border-primary/10 pb-4">
+      <div className="flex gap-x-2 items-center">
+        <Button onClick={() => router.back()} size="icon" variant="ghost">
+          <ChevronLeft className="h-8 w-8" />
+        </Button>
+        <BotAvatar src={replica.src} />
+        <div className="flex flex-col gap-y-1">
+          <div className="flex items-center gap-x-2">
+            <p className="font-bold">{replica.name}</p>
+            <div className="flex items-center text-xs text-muted-foreground">
+              <MessagesSquare className="w-3 h-3 mr-1" />
+              {replica._count.messages}
             </div>
-            <p className="text-xs text-muted-foreground">
-              Created by {replica.userName}
-            </p>
-            <p className="text-xs font-medium text-fuchsia-600">
-              *All chats (including other characters) are limited to 50 messages per day until V1 release.
-            </p>
-            <p className="hidden md:block text-xs font-medium text-muted-foreground">
-              *Repeat your message to the character (if it doesn&#39;t reply) initially, so that it can learn the context and properly respond. Please be patient with them,
-              they are mostly born just yesterday! 😊
-            </p>
           </div>
+          <p className="text-xs text-muted-foreground">
+            Created by {replica.userName}
+          </p>
+          <p className="text-xs font-medium text-pink-500">
+            *All chats (including other characters) are limited to 40 messages per day until V1 release.
+          </p>
         </div>
-        {user?.id === replica.userId && (
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button variant="secondary" size="icon">
-                <MoreVertical />
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="end">
-              <DropdownMenuItem onClick={() => router.push(`/replica/${replica.id}`)}>
-                <Edit className="w-4 h-4 mr-2" />
-                Edit
-              </DropdownMenuItem>
-              <DropdownMenuItem onClick={onDelete}>
-                <Trash className="w-4 h-4 mr-2" />
-                Delete
-              </DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
-        )}
-      </div >
-    </>
+      </div>
+      {user?.id === replica.userId && (
+        <DropdownMenu>
+          <DropdownMenuTrigger asChild>
+            <Button variant="secondary" size="icon">
+              <MoreVertical />
+            </Button>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent align="end">
+            <DropdownMenuItem onClick={() => router.push(`/replica/${replica.id}`)}>
+              <Edit className="w-4 h-4 mr-2" />
+              Edit
+            </DropdownMenuItem>
+            <DropdownMenuItem onClick={onDelete}>
+              <Trash className="w-4 h-4 mr-2" />
+              Delete
+            </DropdownMenuItem>
+          </DropdownMenuContent>
+        </DropdownMenu>
+      )}
+    </div >
   )
 }
