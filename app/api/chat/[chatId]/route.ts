@@ -1,3 +1,12 @@
+export const maxDuration = 80; // This function can run for a maximum of 5 seconds
+export const dynamic = "force-dynamic";
+
+export function GET(request: Request) {
+  return new Response("Vercel", {
+    status: 200,
+  });
+}
+
 import dotenv from "dotenv";
 import { StreamingTextResponse, LangChainStream } from "ai";
 import { auth, currentUser } from "@clerk/nextjs";
