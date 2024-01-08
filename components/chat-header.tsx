@@ -50,7 +50,7 @@ export const ChatHeader = ({ replica, }: ChatHeaderProps) => {
     <>
       <div className="block: md:hidden border border-slate-300/20 p-2 rounded-md">
         <p className="text-xs font-medium text-muted-foreground">
-          Repeat your message to the character (if it doesn&#39;t reply) initially, so that it can learn the context and properly respond. Please be patient with them,
+          *Repeat your message to the character (if it doesn&#39;t reply) initially, so that it can learn the context and properly respond. Please be patient with them,
           they are mostly born just yesterday! 😊
         </p>
       </div>
@@ -71,11 +71,11 @@ export const ChatHeader = ({ replica, }: ChatHeaderProps) => {
             <p className="text-xs text-muted-foreground">
               Created by {replica.userName}
             </p>
-            <p className="text-xs font-medium text-muted-foreground text-fuchsia-600">
+            <p className="text-xs font-medium text-fuchsia-600">
               *All chats (including other characters) are limited to 50 messages per day until V1 release.
             </p>
             <p className="hidden md:block text-xs font-medium text-muted-foreground">
-              Repeat your message to the character (if it doesn&#39;t reply) initially, so that it can learn the context and properly respond. Please be patient with them,
+              *Repeat your message to the character (if it doesn&#39;t reply) initially, so that it can learn the context and properly respond. Please be patient with them,
               they are mostly born just yesterday! 😊
             </p>
           </div>
