@@ -23,6 +23,11 @@ Once you've logged in, simply select any of the character `Replicas` that you se
  * Replica text-to-voice
  * Image generation
 
+#### Shoutout to a16z-infra
+
+The inspiration for the project and ongoing development.
+[https://github.com/a16z-infra/companion-app](https://github.com/a16z-infra/companion-app)
+
 ### Vector Stores, Embeddings, & Rate-Limiting References
 
 [https://www.pinecone.io/learn/javascript-chatbot/](https://www.pinecone.io/learn/javascript-chatbot/)
@@ -33,8 +38,3 @@ Once you've logged in, simply select any of the character `Replicas` that you se
 [https://www.prisma.io/docs/getting-started/setup-prisma/start-from-scratch/relational-databases/connect-your-database-node-mysql](https://www.prisma.io/docs/getting-started/setup-prisma/start-from-scratch/relational-databases/connect-your-database-node-mysql)
 [https://upstash.com/blog/upstash-ratelimit](https://upstash.com/blog/upstash-ratelimit)
 [https://github.com/upstash/ratelimit?tab=readme-ov-file#docs](https://github.com/upstash/ratelimit?tab=readme-ov-file#docs)
-
-### Huge Shoutout to a16z-infra
-
-The inspiration for the project and ongoing development.
-[https://www.youtube.com/redirect?event=video_description&redir_token=QUFFLUhqazItOHh6eUUwNVJqdzF3d05xazlNRzJEWC1ZUXxBQ3Jtc0trZmdWSkY0TVBhU3BPYnRoTUhpOWFNYWdJZkJqaGlmNjhsS2hYeEdHUjdkd2U0Y2tDSmdBb2FvMDN2UkVUeWVCaG1FLUVCRGJsblhjbGN2dmtjQ3BvY2tDU2cwdkJtMTFRNzFObHN4c3dNSFpGdFpxMA&q=https%3A%2F%2Fgithub.com%2Fa16z-infra%2Fcompanion-app&v=PjYWpd7xkaMs](https://www.youtube.com/redirect?event=video_description&redir_token=QUFFLUhqazItOHh6eUUwNVJqdzF3d05xazlNRzJEWC1ZUXxBQ3Jtc0trZmdWSkY0TVBhU3BPYnRoTUhpOWFNYWdJZkJqaGlmNjhsS2hYeEdHUjdkd2U0Y2tDSmdBb2FvMDN2UkVUeWVCaG1FLUVCRGJsblhjbGN2dmtjQ3BvY2tDU2cwdkJtMTFRNzFObHN4c3dNSFpGdFpxMA&q=https%3A%2F%2Fgithub.com%2Fa16z-infra%2Fcompanion-app&v=PjYWpd7xkaMs)

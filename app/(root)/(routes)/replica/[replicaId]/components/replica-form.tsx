@@ -5,7 +5,7 @@ import axios from "axios";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "next/navigation";
-import { Wand2 } from "lucide-react";
+import { Sparkle } from "lucide-react";
 import { Category, Replica } from "@prisma/client";
 
 import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
@@ -111,8 +111,8 @@ export const ReplicaForm = ({
           <div className="space-y-2 w-full col-span-2">
             <div>
               <h3 className="text-lg font-medium">General Information</h3>
-              <p className="text-sm text-muted-foreground">
-                General information about your Replica
+              <p className="text-xs text-muted-foreground">
+                General information about the Replica
               </p>
             </div>
             <Separator className="bg-primary/10" />
@@ -139,7 +139,9 @@ export const ReplicaForm = ({
                     <Input disabled={isLoading} placeholder="Elon Musk" {...field} />
                   </FormControl>
                   <FormDescription>
-                    This is how your AI Replica will be named.
+                    <p className="text-xs text-muted-foreground pl-2">
+                      Name for the Ai Replica
+                    </p>
                   </FormDescription>
                   <FormMessage />
                 </FormItem>
@@ -155,7 +157,9 @@ export const ReplicaForm = ({
                     <Input disabled={isLoading} placeholder="CEO & Founder of Tesla, SpaceX" {...field} />
                   </FormControl>
                   <FormDescription>
-                    Short description for your AI Replica
+                    <p className="text-xs text-muted-foreground pl-2">
+                      Short description for the Ai Replica
+                    </p>
                   </FormDescription>
                   <FormMessage />
                 </FormItem>
@@ -180,7 +184,7 @@ export const ReplicaForm = ({
                     </SelectContent>
                   </Select>
                   <FormDescription>
-                    Select a category for your AI
+                    Select a category for your character Replica
                   </FormDescription>
                   <FormMessage />
                 </FormItem>
@@ -190,8 +194,8 @@ export const ReplicaForm = ({
           <div className="space-y-2 w-full">
             <div>
               <h3 className="text-lg font-medium">Configuration</h3>
-              <p className="text-sm text-muted-foreground">
-                Detailed instructions for AI Behaviour
+              <p className="text-xs text-muted-foreground">
+                Detailed instructions for Ai Replica&apos;s behavior
               </p>
             </div>
             <Separator className="bg-primary/10" />
@@ -206,7 +210,9 @@ export const ReplicaForm = ({
                   <Textarea disabled={isLoading} rows={7} className="bg-background resize-none" placeholder={PREAMBLE} {...field} />
                 </FormControl>
                 <FormDescription>
-                  Describe in detail your replica&apos;s backstory and relevant details.
+                  <p className="text-xs text-muted-foreground">
+                    Describe in detail the Replica&apos;s backstory and relevant info.
+                  </p>
                 </FormDescription>
                 <FormMessage />
               </FormItem>
@@ -222,7 +228,9 @@ export const ReplicaForm = ({
                   <Textarea disabled={isLoading} rows={7} className="bg-background resize-none" placeholder={SEED_CHAT} {...field} />
                 </FormControl>
                 <FormDescription>
-                  Write couple of examples of a human chatting with your AI replica, write expected answers.
+                  <p className="text-xs text-muted-foreground">
+                    Write couple of examples of a human chatting with the Ai Replica, write expected answers.
+                  </p>
                 </FormDescription>
                 <FormMessage />
               </FormItem>
@@ -230,8 +238,8 @@ export const ReplicaForm = ({
           />
           <div className="w-full flex justify-center">
             <Button size="lg" disabled={isLoading}>
-              {initialData ? "Edit your replica" : "Create your replica"}
-              <Wand2 className="w-4 h-4 ml-2" />
+              {initialData ? "Update Replica" : "Create Replica"}
+              <Sparkle className="w-4 h-4 ml-2" />
             </Button>
           </div>
         </form>
