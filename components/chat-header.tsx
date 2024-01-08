@@ -65,7 +65,7 @@ export const ChatHeader = ({ replica, }: ChatHeaderProps) => {
             Created by {replica.userName}
           </p>
           <p className="text-xs font-medium text-muted-foreground text-pink-600">
-            *All chats are cumulatively(including other Replicas) limited to 5 messages per day until V1 release.
+            *All chats are cumulatively(including other Replicas) limited to 50 messages per day until V1 release.
           </p>
         </div>
       </div>
