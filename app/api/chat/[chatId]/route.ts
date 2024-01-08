@@ -107,6 +107,7 @@ export async function POST(
         Below are relevant details about ${replica.name}'s past and the conversation you are in.
         ${relevantHistory}
 
+
         ${recentChatHistory}\n${replica.name}:`
         )
         .catch(console.error)

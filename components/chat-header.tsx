@@ -68,8 +68,8 @@ export const ChatHeader = ({ replica, }: ChatHeaderProps) => {
             *All chats are cumulatively(including other Replicas) limited to 50 messages per day until V1 release.
           </p>
           <p className="text-xs font-medium text-muted-foreground">
-            App is currently deployed on free tier as you may need to repeat your question or message to your
-            character initially for it to learn the context and properly respond.
+            App MVP is currently deployed on free tier infra as you may need to repeat your message to the character
+            replica initially (if it does not reply) for it to learn the context and properly respond.
           </p>
         </div>
       </div>
