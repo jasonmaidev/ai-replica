@@ -5,7 +5,7 @@ import axios from "axios";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "next/navigation";
-import { Sparkle } from "lucide-react";
+import { Sparkles } from "lucide-react";
 import { Category, Replica } from "@prisma/client";
 
 import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
@@ -239,7 +239,7 @@ export const ReplicaForm = ({
           <div className="w-full flex justify-center">
             <Button size="lg" disabled={isLoading}>
               {initialData ? "Update Replica" : "Create Replica"}
-              <Sparkle className="w-4 h-4 ml-2" />
+              <Sparkles className="w-4 h-4 ml-2" />
             </Button>
           </div>
         </form>
