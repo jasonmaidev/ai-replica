@@ -63,7 +63,8 @@ export const ProModal = () => {
         <Separator />
         <div className="flex justify-between">
           <p className="text-sm">
-            This feature is temporarily disabled as we are conducting QA and stress testing assess performance and cost.
+            This feature is temporarily disabled as we are conducting QA and stress testing of the application
+            to assess performance and cost.
             You will be able to <span className="text-sm font-bold">create replicas of any characters </span>
             for free with unlimited chat after we&#39;ve had some time to gauge the total estimated LLM
             run-cost and establish a proper pricing model for the infrastructure on our end.
