@@ -66,7 +66,8 @@ export const ChatHeader = ({ replica, }: ChatHeaderProps) => {
           </p>
           <p className="text-xs font-medium text-pink-500">
             *Ask me anything! If you ask me an unfamiliar topic, I may need sometime to respond.
-            I have to fire up my own computer (powered a hamster wheel) to research the answer!
+            I have to fire up my own computer (powered a hamster wheel) to research answers...
+            Please no math questions!
           </p>
         </div>
       </div>
