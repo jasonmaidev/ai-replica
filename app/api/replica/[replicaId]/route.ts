@@ -17,7 +17,7 @@ export async function PATCH(
       return new NextResponse("Replica ID required", { status: 400 });
     }
 
-    if (!user || !user.id || !user.firstName) {
+    if (!user || !user.id /* || !user.firstName */) {
       return new NextResponse("Unauthorized", { status: 401 });
     }
 
@@ -46,7 +46,7 @@ export async function PATCH(
       data: {
         categoryId,
         userId: user.id,
-        userName: user.firstName,
+        userName: "placeholder",
         src,
         name,
         description,
