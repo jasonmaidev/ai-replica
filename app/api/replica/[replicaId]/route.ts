@@ -46,7 +46,6 @@ export async function PATCH(
       data: {
         categoryId,
         userId: user.id,
-        // userName: user.firstName,
         src,
         name,
         description,
