@@ -10,9 +10,9 @@ The live app is protected by `Clerk Authentication` as a simple one-step sign-in
 
 ### Beta MVP Access
 
-Anyone can use the app. All you need is to have a Gmail account and it doesn't even have to be your main account!
+Anyone can use the app. All you need is to have a Gmail account and it doesn't even have to be your main account! Other email accounts should work as well but be sure it has the basic fields and proprties of a regular user as the server may throw an error for accounts with missing fields sometimes.
 
-If you have trouble accessing the app, please shoot me an email over at jasonmai.dev@gmail.com
+If you have trouble accessing the app, please shoot me an email over at jasonmxdev@gmail.com
 
 ### Getting Started
 

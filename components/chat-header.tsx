@@ -68,6 +68,8 @@ export const ChatHeader = ({ replica, }: ChatHeaderProps) => {
             *Ask me anything! If you ask me an unfamiliar topic, I may need sometime to respond.
             I have to fire up my own computer (powered a hamster wheel) to research answers...
             Please no math questions!
+
+            *Please be patient with me as the backend is deployed on free and base-tier infrastructure that will have a cold start upon initial requests.
           </p>
         </div>
       </div>
